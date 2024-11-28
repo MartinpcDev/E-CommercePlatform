@@ -33,8 +33,6 @@ public class CartItem {
   @JoinColumn(name = "product_id", nullable = false)
   private Product product;
 
-  private String urlImage;
-
   @Column(nullable = false)
   private Integer quantity;
 
