@@ -34,14 +34,14 @@ public class CartController {
 
   @GetMapping
   @PreAuthorize("isAuthenticated()")
-  public ResponseEntity<CartResponse> getCart(
+  public ResponseEntity<CartResponse> findCart(
       @AuthenticationPrincipal UserDetails userDetails
   ) {
     Long userId = UserUtils.extractId(userDetails);
     return ResponseEntity.ok(cartService.getCart(userId));
   }
 
-  @GetMapping
+  @PostMapping("/clear")
   @PreAuthorize("isAuthenticated()")
   public ResponseEntity<CartResponse> clearCart(
       @AuthenticationPrincipal UserDetails userDetails
